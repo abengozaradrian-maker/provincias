@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provincias</title>
+    <style>
+        #provincias-va, #provincias-an,
+        #provincias-ar, #provincias-as, #provincias-ib,
+        #provincias-ca, #provincias-c, #provincias-clm  ,#provincias-cyl, #provincias-ct,
+        #provincias-m, #provincias-ex, #provincias-g, #provincias-lr, #provincias-n, #provincias-pv,
+        #provincias-rm, #provincias-ce, #provincias-ml {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Indica tu domicilio</h1>
+    Comunidad:<select name="" onchange="nuestraProvincias()" id="lista-comunidades">
+        <option value="an">Andalucía</option>
+        <option value="ar">Aragón</option>
+        <option value="as">Asturias</option>
+        <option value="ib">Islas Baleares</option>
+        <option value="ca">Canarias</option>
+        <option value="c">Cantabria</option>
+        <option value="clm">Castilla La Mancha</option>
+        <option value="cyl">Castilla y León</option>
+        <option value="ct">Cataluña</option>
+        <option value="m">Comunidad de Madrid</option>
+        <option value="v">Comunidad Valenciana</option>
+        <option value="ex">Extremadura</option>
+        <option value="g">Galicia</option>
+        <option value="lr">La Rioja</option>
+        <option value="n">Comunidad Foral de Navarra</option>
+        <option value="pv">País Vasco</option>
+        <option value="rm">Región de Murcia</option>
+        <option value="ce">Ceuta</option>
+        <option value="ml">Melilla</option>
+    </select>
+    <select name="" id="provincias-va">
+        <option value="al">Alicante</option>
+        <option value="cs">Castellón</option>
+        <option value="v">Valencia</option>
+    </select>
+    <select name="" id="provincias-an">
+        <option value="al">Almería</option>
+        <option value="ca">Cádiz</option>
+        <option value="co">Córdoba</option>
+        <option value="gr">Granada</option>
+        <option value="h">Huelva</option>
+        <option value="j">Jaén</option>
+        <option value="ma">Málaga</option>
+        <option value="se">Sevilla</option>
+    </select>
+    <select name="" id="provincias-ar">
+        <option value="h">Huesca</option>
+        <option value="te">Teruel</option>
+        <option value="za">Zaragoza</option>
+    </select>
+    <select name="" id="provincias-as">
+        <option value="av">Avilés</option>
+        <option value="ca">Cangas de Onís</option>
+        <option value="ov">Oviedo</option>
+        <option value="sa">Sama de Langreo</option>
+        <option value="se">Siero</option>
+    </select>
+    <select name="" id="provincias-ib">
+        <option value="ib">Islas Baleares</option>
+    </select>
+    <select name="" id="provincias-ca">
+        <option value="gc">Las Palmas</option>
+        <option value="sc">Santa Cruz de Tenerife</option>
+    </select>
+    <select name="" id="provincias-c"> 
+        <option value="bs">Besaya</option>
+        <option value="sj">Santander</option>
+        <option value="so">Solares</option>
+    </select>
+    <select name="" id="provincias-clm">
+        <option value="ab">Albacete</option>
+        <option value="ci">Ciudad Real</option>
+        <option value="cu">Cuenca</option>
+        <option value="gu">Guadalajara</option>
+        <option value="to">Toledo</option>  
+    </select>
+    <select name="" id="provincias-cyl">
+        <option value="av">Ávila</option>
+        <option value="bu">Burgos</option>
+        <option value="le">León</option>
+        <option value="pa">Palencia</option>
+        <option value="sa">Salamanca</option>
+        <option value="sg">Segovia</option>
+        <option value="va">Valladolid</option>
+        <option value="za">Zamora</option>
+    </select>
+    <select name="" id="provincias-ct">
+        <option value="b">Barcelona</option>
+        <option value="gi">Girona</option>
+        <option value="lr">Lleida</option>
+        <option value="t">Tarragona</option>    
+    </select>
+    <select name="" id="provincias-m">
+        <option value="m">Madrid</option>
+    </select>
+    <select name="" id="provincias-ex">
+        <option value="ba">Badajoz</option>
+        <option value="ca">Cáceres</option>
+    </select>
+    <select name="" id="provincias-g">
+        <option value="a">A Coruña</option>
+        <option value="c">Lugo</option>
+        <option value="o">Ourense</option>
+        <option value="p">Pontevedra</option>
+    </select>
+    <select name="" id="provincias-lr">
+        <option value="lr">La Rioja</option>
+    </select>
+    <select name="" id="provincias-n">
+        <option value="n">Navarra</option>
+    </select>
+    <select name="" id="provincias-pv">
+        <option value="a">Álava</option>
+        <option value="bi">Bizkaia</option>
+        <option value="ss">Gipuzkoa</option>
+    </select>
+    <select name="" id="provincias-rm">
+        <option value="rm">Murcia</option>
+    </select>
+    <select name="" id="provincias-ce">
+        <option value="ce">Ceuta</option>
+    </select>
+    <select name="" id="provincias-ml">
+        <option value="ml">Melilla</option>
+    </select>   
+    <script>
+        const comunidadSelect = document.querySelector('select[name=""]');
+        const provinciasSelects = document.querySelectorAll('select[id^="provincias-"]');
+
+        comunidadSelect.addEventListener('change', function() {
+            const selectedValue = this.value;
+
+            provinciasSelects.forEach(select => {
+                if (select.id === 'provincias-' + selectedValue) {
+                    select.style.display = 'inline';
+                } else {
+                    select.style.display = 'none';
+                }
+            });
+        }); 
+    </script>
+</body> 
+</html>
